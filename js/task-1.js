@@ -1,22 +1,11 @@
-const isSuccess = true;
+const categories = document.querySelectorAll('#categories .item');
 
-// Create promise
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (isSuccess) {
-      resolve("Success! Value passed to resolve function");
-    } else {
-      reject("Error! Error passed to reject function");
-    }
-  }, 2000);
+console.log(`Number of categories: ${categories.length}`);
+
+categories.forEach(category => {
+  const title = category.querySelector('h2').textContent;
+  const elementsCount = category.querySelectorAll('li').length;
+
+  console.log(`Category: ${title}`);
+  console.log(`Elements: ${elementsCount}`);
 });
-
-// Registering promise callbacks
-promise.then(
-  value => {
-    console.log(value); // "Success! Value passed to resolve function"
-  },
-  error => {
-    console.log(error); // "Error! Error passed to reject function"
-  }
-);

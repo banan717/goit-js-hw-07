@@ -1,9 +1,22 @@
-const categoriesList = document.querySelector('#categories');
-const categoryItems = categoriesList.querySelectorAll('.item');
-console.log(`Number of categories: ${categoryItems.length}`);
-categoryItems.forEach(item => {
-  const title = item.querySelector('h2').textContent;
-  const elementsCount = item.querySelectorAll('ul li').length;
-  console.log(`Category: ${title}`);
-  console.log(`Elements: ${elementsCount}`);
+const isSuccess = true;
+
+// Create promise
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (isSuccess) {
+      resolve("Success! Value passed to resolve function");
+    } else {
+      reject("Error! Error passed to reject function");
+    }
+  }, 2000);
 });
+
+// Registering promise callbacks
+promise.then(
+  value => {
+    console.log(value); // "Success! Value passed to resolve function"
+  },
+  error => {
+    console.log(error); // "Error! Error passed to reject function"
+  }
+);
